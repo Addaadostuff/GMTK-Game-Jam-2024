@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpu5x3brvap7m"]
+
+[ext_resource type="Script" path="res://Scenes/ZPiece.cs" id="1_m3msb"]
+[ext_resource type="PhysicsMaterial" uid="uid://qxjksnoe4xdu" path="res://Scenes/Piece_PhysicsMaterial.tres" id="1_nhync"]
+[ext_resource type="Texture2D" uid="uid://dtwmvuxxk7nhl" path="res://assets/Z-Piece.png" id="1_yrq0l"]
+
+[node name="Z_Piece" type="RigidBody2D"]
+physics_material_override = ExtResource("1_nhync")
+script = ExtResource("1_m3msb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yrq0l")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-24, -16, 8, -16, 8, 0, 24, 0, 24, 16, -8, 16, -8, 0, -24, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

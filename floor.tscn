@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh036prlrotc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b0y5i"]
+bounce = 1.0
+absorbent = true
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n7kwv"]
+
+[node name="Floor" type="StaticBody2D"]
+disable_mode = 2
+physics_material_override = SubResource("PhysicsMaterial_b0y5i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("WorldBoundaryShape2D_n7kwv")
