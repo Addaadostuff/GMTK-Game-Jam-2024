@@ -6,12 +6,15 @@
 
 [node name="S_Piece" type="RigidBody2D"]
 physics_material_override = ExtResource("1_n0pui")
+lock_rotation = true
 script = ExtResource("1_sdc34")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_0faqa")
+offset = Vector2(-8, 0)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-8, 0)
 polygon = PackedVector2Array(-8, -16, 24, -16, 24, 0, 8, 0, 8, 16, -24, 16, -24, 0, -8, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

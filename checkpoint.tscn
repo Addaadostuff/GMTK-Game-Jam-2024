@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=4 uid="uid://d4bwc2bm710vf"]
+
+[ext_resource type="Texture2D" uid="uid://ckg1fl6jlpv08" path="res://assets/Straight_Piece.png" id="1_hf182"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mr0nr"]
+size = Vector2(304, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q8mnc"]
+texture = ExtResource("1_hf182")
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_sup5f"]
+sources/0 = SubResource("TileSetAtlasSource_q8mnc")
+
+[node name="checkpoint" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(152, 8)
+shape = SubResource("RectangleShape2D_mr0nr")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAADAAAAAAAAAAIAAFACAAAAAAAAAAEAAFABAAAAAAAAAAIAAFAAAAAAAAAAAAMAAFAGAAAAAAAAAAEAAFAFAAAAAAAAAAIAAFAEAAAAAAAAAAEAAFASAAAAAAAAAAAAAFARAAAAAAAAAAEAAFAQAAAAAAAAAAEAAFAPAAAAAAAAAAIAAFAOAAAAAAAAAAEAAFANAAAAAAAAAAIAAFAMAAAAAAAAAAEAAFALAAAAAAAAAAIAAFAKAAAAAAAAAAEAAFAJAAAAAAAAAAIAAFAIAAAAAAAAAAEAAFAHAAAAAAAAAAIAAFA=")
+tile_set = SubResource("TileSet_sup5f")

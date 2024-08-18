@@ -6,6 +6,7 @@
 
 [node name="Block_Piece" type="RigidBody2D"]
 physics_material_override = ExtResource("1_o1mja")
+lock_rotation = true
 script = ExtResource("1_w0rud")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -13,5 +14,8 @@ texture = ExtResource("1_d4xpn")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-16, 16)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

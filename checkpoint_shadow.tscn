@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=4 uid="uid://drt5h1lcmw6iv"]
+
+[ext_resource type="Texture2D" uid="uid://ckg1fl6jlpv08" path="res://assets/Straight_Piece.png" id="1_rjado"]
+[ext_resource type="Texture2D" uid="uid://dflgdmhlggi0l" path="res://assets/Straight_Piece_shadow.png" id="2_i7o6g"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h635l"]
+texture = ExtResource("1_rjado")
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_plgdv"]
+texture = ExtResource("2_i7o6g")
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_b0r3t"]
+sources/0 = SubResource("TileSetAtlasSource_h635l")
+sources/1 = SubResource("TileSetAtlasSource_plgdv")
+
+[node name="checkpoint_shadow" type="TileMapLayer"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAADAAAAAQAAAAIAAFACAAAAAQAAAAEAAFABAAAAAQAAAAIAAFAAAAAAAQAAAAMAAFAHAAAAAQAAAAIAAFAGAAAAAQAAAAEAAFAFAAAAAQAAAAIAAFAEAAAAAQAAAAEAAFALAAAAAQAAAAIAAFAKAAAAAQAAAAEAAFAJAAAAAQAAAAIAAFAIAAAAAQAAAAEAAFAPAAAAAQAAAAEAAFAOAAAAAQAAAAIAAFANAAAAAQAAAAIAAFAMAAAAAQAAAAEAAFAQAAAAAQAAAAIAAFARAAAAAQAAAAEAAFASAAAAAQAAAAMAAGA=")
+tile_set = SubResource("TileSet_b0r3t")

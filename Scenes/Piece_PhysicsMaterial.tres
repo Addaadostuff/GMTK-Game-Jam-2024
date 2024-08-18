@@ -1,4 +1,4 @@
 [gd_resource type="PhysicsMaterial" format=3 uid="uid://qxjksnoe4xdu"]
 
 [resource]
-bounce = 0.2
+rough = true

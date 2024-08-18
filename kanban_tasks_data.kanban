@@ -1,0 +1,198 @@
+{
+	"categories": [
+		{
+			"uuid": "43f8c29f-d645-4824-8050-ee3efed41824",
+			"title": "Task",
+			"color": "42c2ff"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "efc64c1f-3d54-4c04-bc67-7c6cde94ecb5",
+			"title": "Todo",
+			"tasks": [
+				"f04a08af-54b8-421b-8d8f-22547d31c052",
+				"8f2b925c-27e4-4c4d-a09e-834270aad748",
+				"0291b517-e67a-443d-87ea-fb73ad3c7f75",
+				"dccaeef2-107a-4d73-bb5e-547a53f6cff9",
+				"46444dfc-0cf5-4b97-ba0a-5d037b73f975",
+				"0f271709-eb6a-412b-8f50-ba56061670ca",
+				"5ba00060-c1d1-464b-a534-b19f5d8e8f3c",
+				"7e7582f7-6e99-4cab-a436-2a5a3101fbf1",
+				"a8986b38-0ce6-4ad5-bd32-155c7d0b4d5e",
+				"2cbb4142-6061-42bc-90bc-1f8258b99782",
+				"2947e9b9-470b-4f45-abe1-bf9deebeb9c0",
+				"d7904051-5af8-46c5-b7bd-3918246476ce",
+				"72f691ed-3f7e-4df3-b3a6-d60190a5bf79"
+			]
+		},
+		{
+			"uuid": "465dd749-ca56-4547-9bd8-adff5fdcb56c",
+			"title": "Doing",
+			"tasks": [
+				"c6e338b9-40c5-44ee-8b75-c582bf65c3ca",
+				"11ebdfd0-f667-4ffe-95f0-5088978c17c6",
+				"4f3c3b66-0c8d-4c01-849e-c3feb5373030"
+			]
+		},
+		{
+			"uuid": "12725892-f74e-4515-a532-14c93af348ae",
+			"title": "Done",
+			"tasks": [
+				"c7b128ae-66a6-4157-b0d2-605ed2a5efd0"
+			]
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "f04a08af-54b8-421b-8d8f-22547d31c052",
+			"title": "Scoreboard",
+			"description": "",
+			"category": "43f8c29f-d645-4824-8050-ee3efed41824",
+			"steps": [
+				{
+					"details": "display scoreboard ",
+					"done": false
+				},
+				{
+					"details": "ask after stop game to record score",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "11ebdfd0-f667-4ffe-95f0-5088978c17c6",
+			"title": "Scoretracking",
+			"description": "make Height insted of score \nje weniger Teile gebraucht werden desto mehr punkte gibt es.  (bonus) \n",
+			"category": "43f8c29f-d645-4824-8050-ee3efed41824",
+			"steps": [
+				{
+					"details": "height instead of score",
+					"done": false
+				},
+				{
+					"details": "display height and score",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "c7b128ae-66a6-4157-b0d2-605ed2a5efd0",
+			"title": "Scrolling Window",
+			"description": "",
+			"category": "43f8c29f-d645-4824-8050-ee3efed41824",
+			"steps": []
+		},
+		{
+			"uuid": "8f2b925c-27e4-4c4d-a09e-834270aad748",
+			"title": "Background",
+			"description": "",
+			"category": "43f8c29f-d645-4824-8050-ee3efed41824",
+			"steps": []
+		},
+		{
+			"uuid": "0291b517-e67a-443d-87ea-fb73ad3c7f75",
+			"title": "Sounds",
+			"description": "",
+			"category": "43f8c29f-d645-4824-8050-ee3efed41824",
+			"steps": []
+		},
+		{
+			"uuid": "dccaeef2-107a-4d73-bb5e-547a53f6cff9",
+			"title": "musik",
+			"description": "",
+			"category": "43f8c29f-d645-4824-8050-ee3efed41824",
+			"steps": []
+		},
+		{
+			"uuid": "46444dfc-0cf5-4b97-ba0a-5d037b73f975",
+			"title": "Foreground",
+			"description": "",
+			"category": "43f8c29f-d645-4824-8050-ee3efed41824",
+			"steps": []
+		},
+		{
+			"uuid": "0f271709-eb6a-412b-8f50-ba56061670ca",
+			"title": "display increasing difficulty ",
+			"description": "",
+			"category": "43f8c29f-d645-4824-8050-ee3efed41824",
+			"steps": []
+		},
+		{
+			"uuid": "5ba00060-c1d1-464b-a534-b19f5d8e8f3c",
+			"title": "make spawn x height rnd after lvl 4",
+			"description": "",
+			"category": "43f8c29f-d645-4824-8050-ee3efed41824",
+			"steps": []
+		},
+		{
+			"uuid": "7e7582f7-6e99-4cab-a436-2a5a3101fbf1",
+			"title": "make \"speed up\" function",
+			"description": "",
+			"category": "43f8c29f-d645-4824-8050-ee3efed41824",
+			"steps": []
+		},
+		{
+			"uuid": "a8986b38-0ce6-4ad5-bd32-155c7d0b4d5e",
+			"title": "make \"slow down\" function",
+			"description": "",
+			"category": "43f8c29f-d645-4824-8050-ee3efed41824",
+			"steps": []
+		},
+		{
+			"uuid": "4f3c3b66-0c8d-4c01-849e-c3feb5373030",
+			"title": "calc pixel to meters to display as height",
+			"description": "16px == 50cm\n",
+			"category": "43f8c29f-d645-4824-8050-ee3efed41824",
+			"steps": []
+		},
+		{
+			"uuid": "2cbb4142-6061-42bc-90bc-1f8258b99782",
+			"title": "erfinde ne lustige story zum anzeigen warum wieso weshalb",
+			"description": "",
+			"category": "43f8c29f-d645-4824-8050-ee3efed41824",
+			"steps": []
+		},
+		{
+			"uuid": "d7904051-5af8-46c5-b7bd-3918246476ce",
+			"title": "optional: zeig GMTK logo bei start / menu",
+			"description": "",
+			"category": "43f8c29f-d645-4824-8050-ee3efed41824",
+			"steps": []
+		},
+		{
+			"uuid": "2947e9b9-470b-4f45-abe1-bf9deebeb9c0",
+			"title": "Startmenu",
+			"description": "",
+			"category": "43f8c29f-d645-4824-8050-ee3efed41824",
+			"steps": []
+		},
+		{
+			"uuid": "72f691ed-3f7e-4df3-b3a6-d60190a5bf79",
+			"title": "optional:  show score based on actual drawn objekt",
+			"description": "",
+			"category": "43f8c29f-d645-4824-8050-ee3efed41824",
+			"steps": []
+		},
+		{
+			"uuid": "c6e338b9-40c5-44ee-8b75-c582bf65c3ca",
+			"title": "checkpoint shadows",
+			"description": "",
+			"category": "43f8c29f-d645-4824-8050-ee3efed41824",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"efc64c1f-3d54-4c04-bc67-7c6cde94ecb5"
+			],
+			[
+				"465dd749-ca56-4547-9bd8-adff5fdcb56c"
+			],
+			[
+				"12725892-f74e-4515-a532-14c93af348ae"
+			]
+		]
+	}
+}
