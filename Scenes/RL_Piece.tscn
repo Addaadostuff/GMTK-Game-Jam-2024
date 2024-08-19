@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cfsmjeym3suvi"]
 
 [ext_resource type="Script" path="res://Scenes/RlPiece.cs" id="1_ias1t"]
-[ext_resource type="Texture2D" uid="uid://j6vjir1hqv6d" path="res://assets/Reversed-L-Piece.png" id="1_vy07y"]
+[ext_resource type="Texture2D" uid="uid://j6vjir1hqv6d" path="res://assets/Sprites/Reversed-L-Piece.png" id="1_vy07y"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r5ama"]
 

@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 public partial class World : Node2D
@@ -13,6 +14,10 @@ public partial class World : Node2D
 	private List<Piece> pieceWaitlist = new List<Piece>();
 	private Piece selectedPiece;
 	private Random random = new Random((DateTime.Now.ToString() + "GMTK").GetHashCode());
+	private AudioStreamPlayer ASP_Spin;
+	private AudioStreamPlayer ASP_Hit;
+	private TileMapLayer DynamicLayer;
+	private PackedScene spindsound;
 	private int checkpointInterval = 200;
 	private int nextCheckpoint = 148;
 	private int lvl = 1;
@@ -21,6 +26,14 @@ public partial class World : Node2D
 	public override void _Ready()
 	{
 		base._Ready();
+		ProcessMode = Node.ProcessModeEnum.Pausable;
+		GetTree().Paused = false;
+		ASP_Spin = GetNode<AudioStreamPlayer>("%ASP_Spin");
+		ASP_Hit = GetNode<AudioStreamPlayer>("%ASP_Hit");
+		DynamicLayer = GetNode<TileMapLayer>("%DynamicLayer");
+
+
+		spindsound = GD.Load<PackedScene>(@"res://checkpoint.tscn");
 		Scoreline = GetNode<Line2D>("%Scoreline");
 		dropPieceTimer = GetNode<Timer>("%DropPieceTimer");
 		dropPieceTimer.WaitTime = 2;
@@ -28,6 +41,8 @@ public partial class World : Node2D
 
 		checkpointScene = GD.Load<PackedScene>(@"res://checkpoint.tscn");
 		checkpoinshadowtScene = GD.Load<PackedScene>(@"res://checkpoint_shadow.tscn");
+
+
 		pieceSceneCollection.Add(GD.Load<PackedScene>(@"res://Scenes/Block_Piece.tscn"));
 		pieceSceneCollection.Add(GD.Load<PackedScene>(@"res://Scenes/L_Piece.tscn"));
 		pieceSceneCollection.Add(GD.Load<PackedScene>(@"res://Scenes/RL_Piece.tscn"));
@@ -36,10 +51,16 @@ public partial class World : Node2D
 		pieceSceneCollection.Add(GD.Load<PackedScene>(@"res://Scenes/T_Piece.tscn"));
 		pieceSceneCollection.Add(GD.Load<PackedScene>(@"res://Scenes/Z_Piece.tscn"));
 
+		score = 0;
+		UpdateScore(score);
+
 		prepareWaitlist();
 		UpdateDisplay?.Invoke(pieceWaitlist[0].GetChild<Sprite2D>(0).Texture, pieceWaitlist[1].GetChild<Sprite2D>(0).Texture, pieceWaitlist[2].GetChild<Sprite2D>(0).Texture);
 		dropPieceTimer.Start();
+
 	}
+
+
 
 	private void prepareWaitlist()
 	{
@@ -61,7 +82,7 @@ public partial class World : Node2D
 		selectedPiece = null;
 		if (pieceWaitlist.Count == 0)
 		{
-			GD.Print("Spiel Ende");
+
 			return;
 		}
 
@@ -73,7 +94,6 @@ public partial class World : Node2D
 		var spawn = Math.Min(minspawnpoint, highestpoint - 500);
 		selectedPiece.Position = new Vector2(320, spawn);
 
-		GD.Print("GravityScale now: " + selectedPiece.GravityScale);
 		//TODO:  Scaling prüfen wie ich das object dauerhaft gescaled bekomme
 		//Selected_Piece.GlobalScale = new Vector2(2, 2);		
 		selectedPiece.On_Settled = Object_Settled;
@@ -103,30 +123,35 @@ public partial class World : Node2D
 	{
 		if (score >= nextCheckpoint)
 		{
-			GD.Print("Checkpoint reached: " + nextCheckpoint);
 			CallDeferred(nameof(TriggerCheckpoint));
 			lvl++;
 			nextCheckpoint += (checkpointInterval + (lvl * 10));
-			GD.Print("nextCheckpoint " + nextCheckpoint);
-			GD.Print("lvl " + lvl);
-			CallDeferred(nameof(DrawCheckpointShadow), (int)(nextCheckpoint * -1));
 		}
 	}
 
 	private void DrawCheckpointShadow(int ding)
 	{
-		GD.Print("DrawCheckpointShadow: " + ding);
 		var shadow = checkpoinshadowtScene.Instantiate() as TileMapLayer;
-		shadow.Position = new Vector2(150, ding - 32);
+		shadow.Position = new Vector2(176, ding - 32);
 		AddChild(shadow);
 	}
 	private void TriggerCheckpoint()
 	{
-		GD.Print("Checkpoint erreicht bei Score: " + score);
-		var checkpoint = checkpointScene.Instantiate() as StaticBody2D;
-		checkpoint.Position = new Vector2(150, highestpoint - 32);
-		AddChild(checkpoint);
 
+		var checkpoint = checkpointScene.Instantiate() as StaticBody2D;
+		checkpoint.Position = new Vector2(176, highestpoint - 32);
+		// TODO: draw on tilemap
+		//altas id 1 
+		//atlas coordinate 2,4
+		var tilepos1 = DynamicLayer.LocalToMap(new Vector2(176, highestpoint - 32));
+		tilepos1.X = 11;
+		while (tilepos1.Y < 21)
+		{
+			tilepos1.Y++;
+			DynamicLayer.SetCell(tilepos1, 1, new Vector2I(2, 4));
+			DynamicLayer.SetCell(new Vector2I(29, tilepos1.Y), 1, new Vector2I(2, 4));
+		}
+		AddChild(checkpoint);
 	}
 
 	private void dropPieceTimer_Timeout()
@@ -138,6 +163,7 @@ public partial class World : Node2D
 
 	public void Object_Settled()
 	{
+		ASP_Hit.Play();
 		CallDeferred(nameof(Spawn_Piece));
 	}
 
@@ -146,10 +172,11 @@ public partial class World : Node2D
 
 	public Line2D Scoreline { get; set; }
 	public Action<int> UpdateScore { get; set; }
+	public Action OnPaused { get; set; }
 
 	int children_count = 0;
 	float highestpoint = 600f;
-	private int score;
+	private int score = 0;
 
 	public override void _Process(double delta)
 	{
@@ -157,7 +184,6 @@ public partial class World : Node2D
 		if (children.Count() != children_count)
 		{
 			children_count = children.Count();
-			GD.Print("_Process Piece Children: " + children_count);
 			foreach (Node item in children)
 			{
 				if (item is Piece piece)
@@ -178,10 +204,11 @@ public partial class World : Node2D
 		#region inputs
 		if (selectedPiece != null)
 		{
-			if (Input.IsActionJustPressed("Slowdown"))
+			if (Input.IsActionJustPressed("Quit"))
 			{
-				GD.Print("Slowdown");
-				selectedPiece.ApplyCentralForce(new Vector2(0, -500));
+				GetTree().Paused = true;
+				Visible = false;
+				OnPaused?.Invoke();
 			}
 			if (Input.IsActionJustPressed("Right"))
 			{
@@ -193,11 +220,7 @@ public partial class World : Node2D
 				selectedPiece.MoveLeft = true;
 				lastinput = DateTime.Now.Ticks;
 			}
-			if (Input.IsActionPressed("Down"))
-			{
-				selectedPiece.Speedup = true;
-				lastinput = DateTime.Now.Ticks;
-			}
+
 			if (Input.IsActionJustPressed("Up"))
 			{
 				var newvalue = selectedPiece.GlobalRotationDegrees;
@@ -210,10 +233,16 @@ public partial class World : Node2D
 					newvalue = 0;
 				}
 				selectedPiece.GlobalRotationDegrees = newvalue;
+				ASP_Spin.Play();
 			}
 		}
 		#endregion inputs
 	}
 
+	internal void Continue()
+	{
+		Visible = true;
+		GetTree().Paused = false;
+	}
 
 }

@@ -13,7 +13,6 @@
 			"tasks": [
 				"f04a08af-54b8-421b-8d8f-22547d31c052",
 				"8f2b925c-27e4-4c4d-a09e-834270aad748",
-				"0291b517-e67a-443d-87ea-fb73ad3c7f75",
 				"dccaeef2-107a-4d73-bb5e-547a53f6cff9",
 				"46444dfc-0cf5-4b97-ba0a-5d037b73f975",
 				"0f271709-eb6a-412b-8f50-ba56061670ca",
@@ -23,23 +22,24 @@
 				"2cbb4142-6061-42bc-90bc-1f8258b99782",
 				"2947e9b9-470b-4f45-abe1-bf9deebeb9c0",
 				"d7904051-5af8-46c5-b7bd-3918246476ce",
-				"72f691ed-3f7e-4df3-b3a6-d60190a5bf79"
+				"72f691ed-3f7e-4df3-b3a6-d60190a5bf79",
+				"4f3c3b66-0c8d-4c01-849e-c3feb5373030",
+				"11ebdfd0-f667-4ffe-95f0-5088978c17c6"
 			]
 		},
 		{
 			"uuid": "465dd749-ca56-4547-9bd8-adff5fdcb56c",
 			"title": "Doing",
 			"tasks": [
-				"c6e338b9-40c5-44ee-8b75-c582bf65c3ca",
-				"11ebdfd0-f667-4ffe-95f0-5088978c17c6",
-				"4f3c3b66-0c8d-4c01-849e-c3feb5373030"
+				"0291b517-e67a-443d-87ea-fb73ad3c7f75"
 			]
 		},
 		{
 			"uuid": "12725892-f74e-4515-a532-14c93af348ae",
 			"title": "Done",
 			"tasks": [
-				"c7b128ae-66a6-4157-b0d2-605ed2a5efd0"
+				"c7b128ae-66a6-4157-b0d2-605ed2a5efd0",
+				"c6e338b9-40c5-44ee-8b75-c582bf65c3ca"
 			]
 		}
 	],
@@ -95,7 +95,20 @@
 			"title": "Sounds",
 			"description": "",
 			"category": "43f8c29f-d645-4824-8050-ee3efed41824",
-			"steps": []
+			"steps": [
+				{
+					"details": "spin",
+					"done": true
+				},
+				{
+					"details": "hit",
+					"done": false
+				},
+				{
+					"details": "menu items",
+					"done": false
+				}
+			]
 		},
 		{
 			"uuid": "dccaeef2-107a-4d73-bb5e-547a53f6cff9",

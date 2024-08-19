@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/ZPiece.cs" id="1_m3msb"]
 [ext_resource type="PhysicsMaterial" uid="uid://qxjksnoe4xdu" path="res://Scenes/Piece_PhysicsMaterial.tres" id="1_nhync"]
-[ext_resource type="Texture2D" uid="uid://dtwmvuxxk7nhl" path="res://assets/Z-Piece.png" id="1_yrq0l"]
+[ext_resource type="Texture2D" uid="uid://dtwmvuxxk7nhl" path="res://assets/Sprites/Z-Piece.png" id="1_yrq0l"]
 
 [node name="Z_Piece" type="RigidBody2D"]
 physics_material_override = ExtResource("1_nhync")

@@ -2,7 +2,7 @@
 
 [ext_resource type="PhysicsMaterial" uid="uid://qxjksnoe4xdu" path="res://Scenes/Piece_PhysicsMaterial.tres" id="1_1liu4"]
 [ext_resource type="Script" path="res://Scenes/L_Piece.cs" id="1_dncw4"]
-[ext_resource type="Texture2D" uid="uid://d3v2vbjygsnj8" path="res://assets/L-Piece.png" id="2_w81ef"]
+[ext_resource type="Texture2D" uid="uid://d3v2vbjygsnj8" path="res://assets/Sprites/L-Piece.png" id="2_w81ef"]
 
 [node name="L_Piece" type="RigidBody2D"]
 disable_mode = 2

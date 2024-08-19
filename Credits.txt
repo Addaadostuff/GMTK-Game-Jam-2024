@@ -1,0 +1,17 @@
+
+Background:	
+	https://free-game-assets.itch.io/free-summer-pixel-art-backgrounds
+Sprites:
+	Yours truly Addaa
+	https://anokolisa.itch.io/sidescroller-pixelart-sprites-asset-pack-forest-16x16
+	https://maxence-jacquot.itch.io/tiny-tower-16x16-asset-pack
+	https://www.nicepng.com/ourpic/u2e6r5y3u2i1q8y3_pixel-moon-digital-artwork-art/
+Soundeffects:
+	https://opengameart.org/content/menu-selection-click
+	https://opengameart.org/content/laser-fire
+	https://opengameart.org/content/impact
+Music:
+	https://opengameart.org/content/sunny-day-day-6
+	https://opengameart.org/content/title-theme-8-bit-style
+	https://opengameart.org/content/nes-baroque-music-bachs-invention-4
+	

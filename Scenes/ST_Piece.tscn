@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://duawfeg0omg21"]
 
 [ext_resource type="Script" path="res://Scenes/StPiece.cs" id="1_54sym"]
-[ext_resource type="Texture2D" uid="uid://ckg1fl6jlpv08" path="res://assets/Straight_Piece.png" id="1_kmxne"]
+[ext_resource type="Texture2D" uid="uid://ckg1fl6jlpv08" path="res://assets/Sprites/Straight_Piece.png" id="1_kmxne"]
 [ext_resource type="PhysicsMaterial" uid="uid://qxjksnoe4xdu" path="res://Scenes/Piece_PhysicsMaterial.tres" id="1_l8aap"]
 
 [node name="ST_Piece" type="RigidBody2D"]

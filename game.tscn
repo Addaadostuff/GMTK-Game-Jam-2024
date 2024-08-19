@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://kpgq1kbhwru6"]
+[gd_scene load_steps=8 format=3 uid="uid://kpgq1kbhwru6"]
 
 [ext_resource type="Script" path="res://Game.cs" id="1_5jyyw"]
-[ext_resource type="PackedScene" uid="uid://b15ih7m5cling" path="res://world.tscn" id="1_h2gq2"]
+[ext_resource type="AudioStream" uid="uid://dmxxajobnhfmv" path="res://assets/Music/invention4-1loop.wav" id="3_7rdrd"]
+[ext_resource type="Texture2D" uid="uid://bni50k50ahyaf" path="res://assets/Background/Summer2.png" id="3_fgn2u"]
+[ext_resource type="AudioStream" uid="uid://ctw1yiat0vdhu" path="res://assets/Music/MenuTheme.wav" id="4_j5pjf"]
+[ext_resource type="AudioStream" uid="uid://b4f7q4nnqohnk" path="res://assets/Music/sunnyday.wav" id="5_teo34"]
+[ext_resource type="AudioStream" uid="uid://ctx7snfwhwe3g" path="res://assets/Soundeffect/Menu Selection Click.wav" id="6_wmheu"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_mqton"]
+shuffle = true
+stream_count = 3
+stream_0 = ExtResource("3_7rdrd")
+stream_1 = ExtResource("4_j5pjf")
+stream_2 = ExtResource("5_teo34")
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -20,13 +31,12 @@ offset_right = 990.0
 offset_bottom = 540.0
 scale = Vector2(1.5, 1.5)
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+[node name="View" type="SubViewport" parent="SubViewportContainer"]
+unique_name_in_owner = true
+process_mode = 3
 handle_input_locally = false
 size = Vector2i(640, 800)
 render_target_update_mode = 4
-
-[node name="World" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_h2gq2")]
-unique_name_in_owner = true
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
@@ -88,3 +98,136 @@ vertical_alignment = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Score:"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_fgn2u")
+expand_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPlaylist_mqton")
+volume_db = -30.0
+autoplay = true
+
+[node name="Menu" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 351.0
+offset_right = 1312.0
+offset_bottom = 1082.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="Menu/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Tet-Tower"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label2" type="Label" parent="Menu/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Created for GMTK Gam Jam 2024"
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Play_Button" type="Button" parent="Menu/MarginContainer/VBoxContainer/MarginContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "New Game
+"
+
+[node name="MarginContainer4" type="MarginContainer" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Continuebutton" type="Button" parent="Menu/MarginContainer/VBoxContainer/MarginContainer4"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Continue"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+text = "How high can you build?
+Our customer wants you to build his inner walls out of Tetriminos. Don't ask why—just get to work!
+If you build high enough, we can construct the new floor.
+Now, off to work!
+
+
+
+Thanks for the Free Assets!
+Background:	
+	https://free-game-assets.itch.io/free-summer-pixel-art-backgrounds
+Sprites:
+	Yours truly Addaa
+	https://anokolisa.itch.io/sidescroller-pixelart-sprites-asset-pack-forest-16x16
+	https://maxence-jacquot.itch.io/tiny-tower-16x16-asset-pack
+	https://www.nicepng.com/ourpic/u2e6r5y3u2i1q8y3_pixel-moon-digital-artwork-art/
+Soundeffects:
+	https://opengameart.org/content/menu-selection-click
+	https://opengameart.org/content/laser-fire
+	https://opengameart.org/content/impact
+Music:
+	https://opengameart.org/content/sunny-day-day-6
+	https://opengameart.org/content/title-theme-8-bit-style
+	https://opengameart.org/content/nes-baroque-music-bachs-invention-4
+
+
+	
+"
+fit_content = true
+
+[node name="menu_sounds" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_wmheu")
+
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/MarginContainer3/Play_Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/MarginContainer4/Continuebutton" to="." method="_on_continuebutton_pressed"]

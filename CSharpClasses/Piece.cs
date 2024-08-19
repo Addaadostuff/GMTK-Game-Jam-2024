@@ -48,7 +48,7 @@ public partial class Piece : RigidBody2D
 		}
 		if (Speedup)
 		{
-			//GD.Print("Speedup");
+			//
 			ApplyCentralForce(new Vector2(0, 100f));
 			//GravityScale += GravityScale * 0.2f;
 			//GlobalPosition = new Vector2(this.GlobalPosition.X, this.GlobalPosition.Y + Playermovement);
@@ -60,7 +60,6 @@ public partial class Piece : RigidBody2D
 	{
 		if (!Hashit)
 		{
-			GD.Print("hit with grav: " + GravityScale + " damp: " + LinearDamp);
 			On_Settled?.Invoke();
 			var ding = new PhysicsMaterial();
 			ding.Friction = 1;
