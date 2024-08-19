@@ -10,10 +10,13 @@ config_version=5
 
 [application]
 
-config/name="GMTK Game Jam 2024"
+config/name="TE - Tower"
+config/description="Stack up Tetrimino's until you reach an Checkpoint, and build even higher."
+config/version="1.0"
 run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+config/icon="res://assets/Sprites/T_Piece.png"
 
 [display]
 
